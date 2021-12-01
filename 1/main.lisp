@@ -4,13 +4,12 @@
           while line
           collect (parse-integer line))))
 
-(defvar *in2* (get-file "small_input"))
-(defvar *in* (get-file "input"))
+(defvar *in2* (get-file "small_input.txt"))
+(defvar *in* (get-file "input.txt"))
 
 (defun part1 (lines)
   "Day 1 Part 1 AoC21"
-  (let* ((sequence (loop for el in lines collect el))
-         (pairs (mapcar #'list sequence (cdr sequence)))
+  (let* ((pairs (mapcar #'list lines (cdr lines)))
          (diffs (map 'list (lambda (pair) (- (cadr pair) (car pair))) pairs))
          (count (loop for i in diffs when (> i 0) sum 1)))
     (print count)))
