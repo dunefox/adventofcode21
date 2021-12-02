@@ -1,3 +1,5 @@
+(declaim (optimize (safety 0) (speed 3)))
+
 (defun get-file (filename)
   (with-open-file (stream filename)
     (loop for line = (read-line stream nil)
