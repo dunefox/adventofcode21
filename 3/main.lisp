@@ -5,7 +5,7 @@
 (use-package :trivia)
 (use-package :fiveam)
 
-(declaim (optimize (speed 0) (debug 3) (safety 3)))
+(declaim (optimize (speed 3) (debug 0) (safety 0)))
 
 (defun get-file (filename)
   (with-open-file (stream filename)
@@ -32,6 +32,7 @@
   (let ((result (get-most-frequent input "" "")))
     (* (car result) (cadr result))))
 
+; I solved part 1 and 2 in Kotlin already, might come back to Part 2 later on.
 (defun part2 (input)
   0)
 
