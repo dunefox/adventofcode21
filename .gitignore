@@ -349,8 +349,8 @@ cython_debug/
 *.msg
 *.pages
 *.rtf
-*.txt
 *.wpd
+input.txt
 *.wps
 
 ### VisualStudioCode ###
