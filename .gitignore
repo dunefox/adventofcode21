@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,emacs,intellij+all,python,julia,commonlisp,text,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,emacs,intellij+all,python,julia,commonlisp,text,linux
 
+*/.vscode
+
 ### CommonLisp ###
 *.FASL
 *.fasl
