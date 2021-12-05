@@ -59,6 +59,28 @@ end
 @time part1(small_cards, small_numbers) == 4512
 @time part1(cards, numbers)
 
+function all_solved(all)
+    indices = []
+    cards = []
+    indicators = []
+
+    for (i, (card, indicator)) in enumerate(all)
+        cols, rows = sum.([eachcol(indicator); eachrow(indicator)])
+
+        if 5 ∈ cols || 5 ∈ rows
+            push!(indices, i)
+            push!(cards, card)
+            push!(indicators, indicator)
+        end
+    end
+
+    if length(indices) > 0
+        return true, cards, indicators, indices
+    else
+        return false, nothing, nothing, nothing
+    end
+end
+
 function part2(cards, numbers)
     matrices = [transpose(hcat(x...)) for x in Iterators.partition(cards, 5)]
     indicators = [zeros(Int8, 5, 5) for _ in matrices]
@@ -67,16 +89,17 @@ function part2(cards, numbers)
     for number in numbers
         for (card, indicator) in filter(x -> number ∈ x[1], all)
             indicator .+= (card .== number)
+            indicator = indicator .>= 1
         end
 
-        done, solved_card, solved_indicator, index = solved(all, true)
+        done, solved_cards, solved_indicators, indices = all_solved(all)
 
         if done && length(all) == 1
-            res = summed_entries(solved_card, solved_indicator) * number
+            res = summed_entries(solved_cards[1], solved_indicators[1]) * number
 
             return res
         elseif done
-            deleteat!(all, index)
+            deleteat!(all, indices)
         end
     end
 end
