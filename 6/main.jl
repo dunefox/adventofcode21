@@ -12,7 +12,7 @@ function adapt_population!(population)
 end
 
 function part12(input, days)
-    fishies = zeros(BigInt, 9)
+    fishies = zeros(Int, 9)
 
     map(x -> fishies[x] += 1, input .+ 1) # Julia indices are 1-based
 
