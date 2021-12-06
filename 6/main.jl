@@ -25,9 +25,9 @@ end
 
 # Tests
 @test part12(small_input, 80) == 5934
-@test part12(input, 80) == 353274
 @test part12(small_input, 256) == 26984457539
-@test part12(input, 256) == 1609314870967
+println(part12(input, 80))
+println(part12(input, 256))
 
 # Benchmarks
 @benchmark part12(small_input, 80)
