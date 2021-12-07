@@ -39,6 +39,6 @@ function part2(crabs)
 end
 
 @test part1(small_input) == 37
-@test part1(input)
+part1(input)
 @test part2(small_input) == 168
-@test part2(input)
+part2(input)
