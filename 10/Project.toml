@@ -1,0 +1,5 @@
+[deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+SplitApplyCombine = "03a91e81-4c3e-53e1-a0a4-9c0c8f19dd66"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
