@@ -82,16 +82,17 @@ function part1(input)
     return cumsum
 end
 
-@test part1(small_input) == 1656
-part1(input)
-
 function part2(input)
     current_map = copy(input)
     R = CartesianIndices(current_map)
     c = CartesianIndex
-    cumsum = 0
+    counter = 1
 
-    for step in 1:100
+    while true
+        if current_map == zeros(Int, size(current_map))
+            return counter - 1
+        end
+        
         inc!(current_map)
         actives = current_map .> 9
 
@@ -118,11 +119,12 @@ function part2(input)
             end
         end
 
-        cumsum += sum(actives .>= 1)
+        counter += 1
     end
-
-    return cumsum
 end
 
 @test part1(small_input) == 1656
 part1(input)
+
+@test part2(small_input) == 195
+part2(input)
