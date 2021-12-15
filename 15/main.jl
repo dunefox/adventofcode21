@@ -76,5 +76,4 @@ function part1(input)
 end
 
 @test part1(small_input) == 40
-part1(small_input)
 part1(input)
