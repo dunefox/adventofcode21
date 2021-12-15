@@ -59,7 +59,7 @@ function a_star(field, start, goal, h)::Int
                 fscore[neighbour] = gscoreᵢ + h(neighbour, goal)
             
                 if neighbour ∉ keys(openset)
-                        enqueue!(openset, neighbour, fscore[neighbour])
+                    enqueue!(openset, neighbour, fscore[neighbour])
                 end
             end
         end
@@ -71,8 +71,6 @@ end
 function part1(input)
     start = [1, 1]
     goal = size(input)
-
-    a_star(input, start, goal, euclidian_distance)
     
     return a_star(input, start, goal, euclidian_distance)::Int
 end
